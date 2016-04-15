@@ -50,7 +50,7 @@ The default chip address of 0x50 is hardcoded at the top of the I/O function, an
 
 This module implements a very basic interface, and is largely intended as an example of how to access the FRAM from
 Python on a Raspberry Pi.  It is useful as-is, but a much more sophisticated interface could be built using the same
-basic code.  It's major shortcomging (in the author's opinion) include the fact that it has a hard-coded I2C bus 
+basic code.  It's major shortcomings (in the author's opinion) include the fact that it has a hard-coded I2C bus 
 address, only reads and writes strings, and opens and closes the i2c bus device for each call.  (However, this was
 sufficient for the author's needs, and has already taken siginificant time to research and implement.)
 
