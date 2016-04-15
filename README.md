@@ -47,7 +47,7 @@ write16() and writeString(), along with the complementary read functions would b
 flexible.  (Folks who are familiar with the Adafruit Arduino driver will recognize that this is the same model as,
 and an extension of, that driver.)
 
-If anyone undertakes this implementation based on my code, I would enjoy hearing abou it (pease at coati dot com).
+If anyone undertakes this implementation based on my code, I would enjoy hearing abou it.
 
 
 
