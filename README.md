@@ -33,7 +33,7 @@ The module can be used as-is by doing the following:
 
 3.  Use the FRAMread and FRAMwrite functions to read and write the memory:
   - FRAMwrite(memoryaddress, string)
-  - data = FRAMread(memoryaddress, length)
+  - string = FRAMread(memoryaddress, length)
 
 4.  Before running the program, insure that it has the proper permissions to read and write the I2C bus by doing one of the 
 following:
@@ -56,7 +56,7 @@ sufficient for the author's needs, and has already taken siginificant time to re
 
 A module that creates an FRAM object which is passed the FRAM I2C bus address at initialization and opens the bus
 device only once would be a simple extenstion.  From there, a selection of read and write calls, such as write8(),
-write16() and writeString(), along with the complementary read functions would be easy and would make the module very 
+write16() and writeString(), along with the complementary read functions, would be easy and would make the module very 
 flexible.  (Folks who are familiar with the Adafruit Arduino driver will recognize that this is the same model as,
 and an extension of, that driver.)
 
