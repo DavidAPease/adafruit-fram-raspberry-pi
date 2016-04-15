@@ -35,7 +35,16 @@ The module can be used as-is by doing the following:
   - FRAMwrite(memoryaddress, string)
   - data = FRAMread(memoryaddress, length)
 
-The default chip address of 0x50 is hardcoded at the top of the program, and can be trivially changed.
+4.  Before running the program, insure that it has the proper permissions to read and write the I2C bus by doing one of the 
+following:
+  - run the program as root, using sudo
+    - not ideal, but easy
+  - change the write permissions on the device file: sudo chmod a+rw /dev/i2c-1
+    - would need to be done after each reboot (unless it is encoded into a udev rule)
+  - add any users who will run the program to the i2c group: sudo usermod -a -G i2c username
+    - probably the correct (best) approach
+
+The default chip address of 0x50 is hardcoded at the top of the I/O function, and can be trivially changed.
 
 ##Potential Enhancements
 
