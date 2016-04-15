@@ -8,7 +8,7 @@ The Adafruit I2C FRAM breakout board is a 32K non-volatile memory board using fe
 properties that make it attractive for Maker projects needing non-volatile memory, including byte addressability (without
 the need for a Flash Translation Layer (FTL)), and amazing write endurance (~10**12 overwrites per cell).  The board is
 connected to a computer system using the I2C bus.  This makes it potentially usable by many types of small computers, 
-including Arduinos and Raspberry Pis.  The Adafuit example code is for Adruino systems.
+including Arduinos and Raspberry Pis.  The Adafuit example code is for Arduino systems.
 
 Connecting the board to a Raspberry Pi is trivial, and requires only 4 wries to get working: Vcc (5V or 3.3V), ground, SDA 
 and SCL.  However, that is where the Raspberry Pi ease-of-use ends for this board.  The Python I2C (SMBus) module and the 
