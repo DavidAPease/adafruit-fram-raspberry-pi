@@ -1,6 +1,8 @@
 #About this Module
 
-##Simple Python module for reading and writing to the Adafruit I2C FRAM breakout board using Python
+##A Simple Python module for reading and writing to the Adafruit I2C FRAM breakout board using Python
+
+###Background
 
 The Adafruit I2C FRAM breakout board is a 32K non-volatile memory board using ferromagnetic RAM (FRAM).  FRAM has several 
 properties that make it attractive for Maker projects needing non-volatile memory, including byte addressability (without
@@ -13,6 +15,8 @@ and SCL.  However, that is where the Raspberry Pi ease-of-use ends for this boar
 underlying Linux (Raspbian, etc.) i2c-dev library expect an I2C chip to use a 1-byte command id or register address in the I2C
 command.  However, since the FRAM board is a 32K memory, it requires two address bytes.  Thus, the Python I2C module, and
 even the standard i2c-dev Linux module cannot be used with the board.
+
+###Implementation and Use
 
 This module's pure Python code uses the fcntl module's ioctl() function along with the ctypes module's ability to build c-
 language compatible data structures to implement read and write functions for the board from Python.  The program has a very 
