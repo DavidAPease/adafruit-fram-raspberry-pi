@@ -28,7 +28,7 @@ The module can be used as-is by doing the following:
 
 1.  Put a copy of the FRAM.py program into the directory with the program that will use it.
 
-2.  Include the module:
+2.  Import the module's functions:
   - from FRAM import FRAMread, FRAMwrite
 
 3.  Use the FRAMread() and FRAMwrite() functions to read and write the memory:
@@ -40,7 +40,7 @@ following:
   - run the program as root, using sudo
     - not ideal, but easy
   - change the write permissions on the device file: sudo chmod a+rw /dev/i2c-1
-    - would need to be done after each reboot (unless it is encoded into a udev rule)
+    - this would need to be done after each reboot (unless it is encoded into a udev rule)
   - add any users who will run the program to the i2c group: sudo usermod -a -G i2c username
     - probably the correct (best) approach
 
@@ -54,13 +54,10 @@ basic code.  It's major shortcomings (in the author's opinion) include the fact 
 address, only reads and writes strings, and opens and closes the i2c bus device for each call.  (However, this was
 sufficient for the author's needs, and has already taken siginificant time to research and implement.)
 
-A module that creates an FRAM object which is passed the FRAM I2C bus address at initialization and opens the bus
+A module that creates an FRAM object (initialized with the FRAM I2C bus address), and which opens the bus
 device only once would be a simple extenstion.  From there, a selection of read and write calls, such as write8(),
 write16() and writeString(), along with the complementary read functions, would be easy and would make the module very 
 flexible.  (Folks who are familiar with the Adafruit Arduino driver will recognize that this is the same model as,
 and an extension of, that driver.)
 
 If anyone undertakes this implementation based on my code, I would enjoy hearing abou it.
-
-
-
