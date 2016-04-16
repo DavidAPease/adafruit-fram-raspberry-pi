@@ -1,6 +1,6 @@
 #About this Module
 
-##A Simple Python module for reading and writing to the Adafruit I2C FRAM breakout board using Python
+##A simple Python module for reading and writing to the Adafruit I2C FRAM breakout board using Python
 
 ###Background
 
@@ -31,7 +31,7 @@ The module can be used as-is by doing the following:
 2.  Include the module:
   - from FRAM import FRAMread, FRAMwrite
 
-3.  Use the FRAMread and FRAMwrite functions to read and write the memory:
+3.  Use the FRAMread() and FRAMwrite() functions to read and write the memory:
   - FRAMwrite(memoryaddress, string)
   - string = FRAMread(memoryaddress, length)
 
