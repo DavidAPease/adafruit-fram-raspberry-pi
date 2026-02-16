@@ -4,17 +4,17 @@
 
 ### Background
 
-The Adafruit I2C FRAM breakout board is a 32K non-volatile memory board using ferromagnetic RAM (FRAM).  FRAM has several 
+The Adafruit I<sup>2</sup>C FRAM breakout board is a 32K non-volatile memory board using ferromagnetic RAM (FRAM).  FRAM has several 
 properties that make it attractive for Maker projects needing non-volatile memory, including byte addressability (without
-the need for a Flash Translation Layer (FTL)), and amazing write endurance (~10**12 overwrites per cell).  The board is
-connected to a computer system using the I2C bus.  This makes it potentially usable by many types of small computers, 
+the need for a Flash Translation Layer (FTL)), and amazing write endurance (~10<sup>12</sup> overwrites per cell).  The board is
+connected to a computer system using the I<sup>2</sup>C bus.  This makes it potentially usable by many types of small computers, 
 including Arduinos and Raspberry Pis.  The Adafuit example code is for Arduino systems.
 
-Connecting the board to a Raspberry Pi is trivial, and requires only 4 wries to get working: Vcc (5V or 3.3V), ground, SDA 
-and SCL.  However, that is where the Raspberry Pi ease-of-use ends for this board.  The Python I2C (SMBus) module and the 
-underlying Linux (Raspbian, etc.) i2c-dev library expect an I2C chip to use a 1-byte command id or register address in the I2C
-command.  However, since the FRAM board is a 32K memory, it requires two address bytes.  Thus, the Python I2C module, and
-even the standard i2c-dev Linux module cannot be used with the board.
+Connecting the board to a Raspberry Pi is trivial, and requires only 4 wires to get working: Vcc (5V or 3.3V), ground, SDA 
+and SCL.  However, that is where the Raspberry Pi ease-of-use ends for this board.  The Python I<sup>2</sup>C (SMBus) module and the 
+underlying Linux (Raspbian, etc.) i2c-dev library expect an I<sup>2</sup>C chip to use a 1-byte command id or register address in the 
+I<sup>2</sup>C command.  However, since the FRAM board is a 32K memory, it requires two address bytes.  Thus, the Python I<sup>2</sup>C
+module, and even the standard i2c-dev Linux module cannot be used with the board.
 
 ### Implementation and Use
 
@@ -29,19 +29,19 @@ The module can be used as-is by doing the following:
 1.  Put a copy of the FRAM.py program into the directory with the program that will use it.
 
 2.  Import the module's functions:
-  - from FRAM import FRAMread, FRAMwrite
+  - `from FRAM import FRAMread, FRAMwrite`
 
 3.  Use the FRAMread() and FRAMwrite() functions to read and write the memory:
-  - FRAMwrite(memoryaddress, string)
-  - string = FRAMread(memoryaddress, length)
+  - `FRAMwrite(memoryaddress, string)`
+  - `string = FRAMread(memoryaddress, length)`
 
-4.  Before running the program, insure that it has the proper permissions to read and write the I2C bus by doing one of the 
+4.  Before running the program, insure that it has the proper permissions to read and write the I<sup>2</sup>C bus by doing one of the 
 following:
   - run the program as root, using sudo
     - not ideal, but easy
   - change the write permissions on the device file: sudo chmod a+rw /dev/i2c-1
     - this would need to be done after each reboot (unless it is encoded into a udev rule)
-  - add any users who will run the program to the i2c group: sudo usermod -a -G i2c username
+  - add any users who will run the program to the i2c group: `sudo usermod -a -G i2c username`
     - probably the correct (best) approach
 
 The default chip address of 0x50 is hardcoded at the top of the I/O function, and can be trivially changed.
@@ -50,11 +50,11 @@ The default chip address of 0x50 is hardcoded at the top of the I/O function, an
 
 This module implements a very basic interface, and is largely intended as an example of how to access the FRAM from
 Python on a Raspberry Pi.  It is useful as-is, but a much more sophisticated interface could be built using the same
-basic code.  It's major shortcomings (in the author's opinion) include the fact that it has a hard-coded I2C bus 
-address, only reads and writes strings, and opens and closes the i2c bus device for each call.  (However, this was
+basic code.  It's major shortcomings (in the author's opinion) include the fact that it has a hard-coded I<sup>2</sup>C bus 
+address, only reads and writes strings, and opens and closes the I<sup>2</sup>C bus device for each call.  (However, this was
 sufficient for the author's needs, and has already taken siginificant time to research and implement.)
 
-A module that creates an FRAM object (initialized with the FRAM I2C bus address), and which opens the bus
+A module that creates an FRAM object (initialized with the FRAM I<sup>2</sup>C bus address), and which opens the bus
 device only once would be a simple extenstion.  From there, a selection of read and write calls, such as write8(),
 write16() and writeString(), along with the complementary read functions, would be easy and would make the module very 
 flexible.  (Folks who are familiar with the Adafruit Arduino driver will recognize that this is the same model as,
